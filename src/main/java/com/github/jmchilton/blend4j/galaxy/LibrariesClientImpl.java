@@ -105,17 +105,14 @@ class LibrariesClientImpl extends Client implements LibrariesClient {
     return super.multipartPost(getWebResourceContents(libraryId), entityMap, prepareUpload(upload.getFile()));
   }
   
-  @Override
   public ClientResponse showDatasetRequest(String libraryId, String datasetId) {
     return getResponse(getWebResourceContents(libraryId).path(datasetId));
   }
 
-  @Override
   public LibraryDataset showDataset(String libraryId, String datasetId) {
     return read(showDatasetRequest(libraryId, datasetId), LibraryDataset.class);
   }
 
-  @Override
   public ClientResponse deleteLibraryRequest(String libraryId) {
     return deleteResponse(getWebResource(libraryId));
   }

@@ -81,21 +81,18 @@ class HistoriesClientImpl extends Client implements HistoriesClient {
     }
   }
 
-  @Override
   public CollectionResponse showDatasetCollection(String historyId,
       String datasetCollectionId) {
     return getWebResourceContents(historyId).path("dataset_collections").
         path(datasetCollectionId).get(CollectionResponse.class);
   }
   
-  @Override
   public ClientResponse createDatasetCollectionRequest(String historyId,
       CollectionDescription collectionDescription) {
     final ClientResponse response = super.create(super.path(historyId).path("contents"), collectionDescription);
     return response;
   }
 
-  @Override
   public CollectionResponse createDatasetCollection(String historyId,
       CollectionDescription collectionDescription) {
     ClientResponse response = createDatasetCollectionRequest(historyId, collectionDescription);
@@ -108,7 +105,6 @@ class HistoriesClientImpl extends Client implements HistoriesClient {
     }
   }
 
-  @Override
   public void downloadDataset(String historyId, String datasetId,
       File destinationFile) throws IOException {
 	Dataset dataset = showDataset(historyId, datasetId);
@@ -122,12 +118,10 @@ class HistoriesClientImpl extends Client implements HistoriesClient {
     fr.close();
   }
 
-  @Override
   public ClientResponse deleteHistoryRequest(String historyId) {
   	return deleteResponse(getWebResource(historyId));
   }
   
-  @Override
   public HistoryDeleteResponse deleteHistory(String historyId) {
     return deleteHistoryRequest(historyId).getEntity(HistoryDeleteResponse.class);
   }

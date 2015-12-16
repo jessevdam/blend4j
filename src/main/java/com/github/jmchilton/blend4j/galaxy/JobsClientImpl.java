@@ -22,7 +22,6 @@ public class JobsClientImpl extends Client implements JobsClient {
 	/**
 	 * {@inheritDoc}
 	 */
-	@Override
 	public List<Job> getJobs() {
 		return get(new TypeReference<List<Job>>() {
 		});
@@ -31,7 +30,6 @@ public class JobsClientImpl extends Client implements JobsClient {
 	/**
 	 * {@inheritDoc}
 	 */
-	@Override
 	public JobDetails showJob(final String id) {
 		return super.show(id, JobDetails.class);
 	}

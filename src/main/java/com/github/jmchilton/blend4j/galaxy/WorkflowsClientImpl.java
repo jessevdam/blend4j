@@ -51,7 +51,6 @@ class WorkflowsClientImpl extends Client implements WorkflowsClient {
     return importWorkflowResponse(json).getEntity(Workflow.class);
   }
 
-  @Override
   public ClientResponse deleteWorkflowRequest(String id) {
     return deleteResponse(getWebResource(id));
   }
